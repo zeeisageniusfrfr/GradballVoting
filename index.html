@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Red Carpet Experience</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+</head>
+<body>
+    <!-- Curtain Overlay -->
+    <div id="curtain-overlay" class="curtain-overlay">
+        <div class="curtain-left"></div>
+        <div class="curtain-right"></div>
+        <div class="curtain-pull">
+            <div class="pull-text">Click to Open</div>
+            <div class="pull-handle">▶</div>
+        </div>
+    </div>
+
+    <!-- Login Interface -->
+    <div id="login-interface" class="login-interface">
+        <div class="login-content">
+            <h2>Prom Voting Login</h2>
+            <div class="login-toggle">
+                <button id="user-login-btn" class="toggle-btn active">Voter Login</button>
+                <button id="admin-login-btn" class="toggle-btn">Admin Login</button>
+            </div>
+            
+            <!-- User Login Form -->
+            <div id="user-login-form" class="login-form">
+                <div class="name-selection-container">
+                    <input type="text" id="name-input" placeholder="Type your name..." autocomplete="off">
+                    <div id="name-suggestions" class="suggestions-dropdown"></div>
+                </div>
+                <button id="select-name-btn" class="login-btn">Select & Continue</button>
+            </div>
+            
+            <!-- Admin Login Form -->
+            <div id="admin-login-form" class="login-form" style="display: none;">
+                <div class="password-container">
+                    <input type="password" id="admin-password" placeholder="Enter admin password..." autocomplete="off">
+                    <button id="admin-login-submit" class="login-btn">Admin Access</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main id="main-content" class="main-content">
+        <!-- Voting Content -->
+        <div class="voting-content" style="display: none;">
+            <h1>BOTAR NA OY</h1>
+            <div class="voting-section">
+                <h2>Vote for Prom Roles</h2>
+                <div class="voting-categories">
+                    <div class="voting-category">
+                        <h3>Prom King</h3>
+                        <div class="voting-search-container">
+                            <input type="text" class="voting-search-input" id="prom-king-search" placeholder="Search candidates..." autocomplete="off">
+                            <div class="voting-suggestions-dropdown" id="prom-king-suggestions"></div>
+                        </div>
+                        <div class="candidates-list" id="prom-king-candidates"></div>
+                    </div>
+                    <div class="voting-category">
+                        <h3>Prom Queen</h3>
+                        <div class="voting-search-container">
+                            <input type="text" class="voting-search-input" id="prom-queen-search" placeholder="Search candidates..." autocomplete="off">
+                            <div class="voting-suggestions-dropdown" id="prom-queen-suggestions"></div>
+                        </div>
+                        <div class="candidates-list" id="prom-queen-candidates"></div>
+                    </div>
+                    <div class="voting-category">
+                        <h3>Best Dressed Male</h3>
+                        <div class="voting-search-container">
+                            <input type="text" class="voting-search-input" id="best-dressed-male-search" placeholder="Search candidates..." autocomplete="off">
+                            <div class="voting-suggestions-dropdown" id="best-dressed-male-suggestions"></div>
+                        </div>
+                        <div class="candidates-list" id="best-dressed-male-candidates"></div>
+                    </div>
+                    <div class="voting-category">
+                        <h3>Best Dressed Female</h3>
+                        <div class="voting-search-container">
+                            <input type="text" class="voting-search-input" id="best-dressed-female-search" placeholder="Search candidates..." autocomplete="off">
+                            <div class="voting-suggestions-dropdown" id="best-dressed-female-suggestions"></div>
+                        </div>
+                        <div class="candidates-list" id="best-dressed-female-candidates"></div>
+                    </div>
+                </div>
+                
+                <!-- Voting Action Buttons -->
+                <div class="voting-actions">
+                    <button id="submit-votes-btn" class="submit-btn">Submit Votes</button>
+                    <button id="voter-logout-btn" class="logout-btn">Logout</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Admin Content -->
+        <div class="admin-content" style="display: none;">
+            <h1>Admin Panel</h1>
+            <div class="admin-header">
+                <h2>Voting Results</h2>
+                <div class="admin-actions">
+                    <button id="reset-votes-btn" class="reset-btn">Reset Votes</button>
+                    <button id="admin-logout-btn" class="logout-btn">Logout</button>
+                </div>
+            </div>
+            <div class="admin-results">
+                <div class="results-category">
+                    <h3>Prom King Results</h3>
+                    <div class="results-list" id="prom-king-results"></div>
+                </div>
+                <div class="results-category">
+                    <h3>Prom Queen Results</h3>
+                    <div class="results-list" id="prom-queen-results"></div>
+                </div>
+                <div class="results-category">
+                    <h3>Best Dressed Male Results</h3>
+                    <div class="results-list" id="best-dressed-male-results"></div>
+                </div>
+                <div class="results-category">
+                    <h3>Best Dressed Female Results</h3>
+                    <div class="results-list" id="best-dressed-female-results"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Background Music -->
+    <audio id="background-music" loop>
+        <source src="background.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
